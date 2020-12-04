@@ -1,14 +1,11 @@
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:parliamo/pages/spashScreen.dart';
-
-
-
-
+import 'package:parliamo/pages/starter.dart';
 
 void main() async{
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Home()
@@ -27,8 +24,8 @@ class _HomeState extends State<Home> {
       builder: (context,constraints){
         return OrientationBuilder(
             builder:(context,orientation){
-             // SizeConfig().init(constraints, orientation,MediaQuery.of(context).padding.top,MediaQuery.of(context).padding.bottom,MediaQuery.of(context).padding.right,MediaQuery.of(context).padding.left);
-              return splashScreen();
+              // SizeConfig().init(constraints, orientation,MediaQuery.of(context).padding.top,MediaQuery.of(context).padding.bottom,MediaQuery.of(context).padding.right,MediaQuery.of(context).padding.left);
+              return starterPage();
             }
         );
       },

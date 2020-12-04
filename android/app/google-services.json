@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1050769003848",
+    "firebase_url": "https://take-care-9c600.firebaseio.com",
+    "project_id": "take-care-9c600",
+    "storage_bucket": "take-care-9c600.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050769003848:android:95e3ae9608d1089ca70f7d",
+        "android_client_info": {
+          "package_name": "com.example.parliamo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050769003848-sphao6c53b5epni7kue11qt0n1rjqbep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parliamo",
+            "certificate_hash": "008148e4d4321b2d82e47e8f2fc52a9d71ef10bc"
+          }
+        },
+        {
+          "client_id": "1050769003848-8g9j9dne2f3jeafgenjfs3kevcr3stuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxOK73D2zDPcM0E7kOwpQ1HX9GAMzAShk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050769003848-8g9j9dne2f3jeafgenjfs3kevcr3stuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
