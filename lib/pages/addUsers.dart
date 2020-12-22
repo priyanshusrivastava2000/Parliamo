@@ -7,7 +7,10 @@ import 'package:parliamo/functions/database.dart';
 import 'package:parliamo/functions/fetch.dart';
 import 'package:parliamo/functions/transitionAnimation.dart';
 import 'package:parliamo/homedemo.dart';
+import 'package:parliamo/pages/aboutUS.dart';
 import 'package:parliamo/pages/addUsersForm.dart';
+import 'package:parliamo/pages/faq.dart';
+import 'package:parliamo/pages/profilePage.dart';
 import 'package:parliamo/pages/starter.dart';
 
 
@@ -25,6 +28,7 @@ class addUsers extends State<usersPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    gettingUserImage();
     gettingData().then((String value){
       print("completed");
       setState(() {
@@ -87,6 +91,12 @@ class addUsers extends State<usersPage> {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
+                onTap: (){
+                  setState(() {
+                    gettingUserImage();
+                  });
+                  Navigator.of(context).push(ScaleRoute(page: profilePage()));
+                },
               ),
 
               ListTile(
@@ -100,6 +110,9 @@ class addUsers extends State<usersPage> {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
+                onTap: (){
+                  Navigator.of(context).push(ScaleRoute(page: aboutUs()));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.contact_support_rounded,color: Colors.black,),
@@ -112,6 +125,9 @@ class addUsers extends State<usersPage> {
                   ),
                 ),
                 trailing: Icon(Icons.arrow_forward_ios),
+                onTap: (){
+                  Navigator.of(context).push(ScaleRoute(page: faq()));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.power_settings_new,color: Colors.black,),
@@ -129,10 +145,7 @@ class addUsers extends State<usersPage> {
                   relationList.clear();
                   ageList.clear();
                   genderList.clear();
-                  signOut().whenComplete((){
-                    Navigator.pop(context);
-                    Navigator.of(context).push(ScaleRoute(page: starterPage()));
-                  });
+                  signOut(context);
                 },
               )
             ],
@@ -389,6 +402,7 @@ class addUsers extends State<usersPage> {
                             onTap: (){
                               setState(() {
                                 displayName = nameList[index];
+                                currentSubUser = relationList[index];
                               });
                               Navigator.of(context).push(ScaleRoute(page: home()));
                             },

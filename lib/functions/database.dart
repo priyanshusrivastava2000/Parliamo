@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:parliamo/functions/fetch.dart';
+import 'package:parliamo/pages/addReports.dart';
 
 var user = FirebaseAuth.instance.currentUser;
 
@@ -40,5 +42,19 @@ class SubUsersData{
      print(e);
    }
  }
+}
+class TestsData{
+  final CollectionReference subUsers = FirebaseFirestore.instance.collection('Users').doc(user.uid).collection('SubUsers').doc(currentSubUser).collection('Tests');
+
+  Future testData(String testName)async{
+    try{
+      await subUsers.doc(testName + "_" +'(${DateTime.now()})').set(
+        testDataMap.cast<String,String>()
+      );
+    }
+    catch(e){
+      print(e);
+    }
+  }
 }
 

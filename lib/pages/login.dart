@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:parliamo/functions/database.dart';
 import 'package:parliamo/functions/fetch.dart';
+import 'package:parliamo/functions/signInGoogle.dart';
 import 'package:parliamo/functions/transitionAnimation.dart';
 import 'package:parliamo/pages/addUsers.dart';
 import 'package:parliamo/pages/signup.dart';
-final loginformKey = GlobalKey<FormState>();
+GlobalKey<FormState> loginformKey = GlobalKey<FormState>();
 class loginScreen extends StatefulWidget {
   @override
   login createState() => login();
@@ -18,6 +20,7 @@ class login extends State<loginScreen>{
   void initState() {
     // TODO: implement initState
     super.initState();
+
   }
   @override
   Widget build(BuildContext context) {
@@ -55,7 +58,8 @@ class login extends State<loginScreen>{
                       fontWeight: FontWeight.w800,
                     ),
                     textAlign: TextAlign.left,
-                  )),
+                  )
+                  ),
                 ),
               ),
               Transform.translate(
@@ -226,26 +230,21 @@ class login extends State<loginScreen>{
               ),
               Transform.translate(
                 offset: Offset(76.0, 550.0),
-                child: SizedBox(
-                  width: 176.0,
-                  height: 14.0,
-                  child: SingleChildScrollView(
-                      child: Text(
+                child: Container(
+                  child: Text(
                     'Don\'t Have an account?',
                     style: TextStyle(
-                      fontFamily: 'Arial Unicode MS',
-                      fontSize: 15,
-                      color: const Color(0xff000000),
+                  fontFamily: 'Arial Unicode MS',
+                  fontSize: 15,
+                  color: const Color(0xff000000),
                     ),
                     textAlign: TextAlign.center,
-                  )),
+                  ),
                 ),
               ),
               Transform.translate(
                 offset: Offset(242.0, 549.0),
-                child: SizedBox(
-                  width: 62.0,
-                  height: 19.0,
+                child: Container(
                   child: GestureDetector(
                     child: Text(
                       'Signup',
@@ -297,19 +296,30 @@ class login extends State<loginScreen>{
                 ),
               ),
               Transform.translate(
-                offset: Offset(176.0, 181.0),
+                offset: Offset(184.0, 188.0),
                 child:
                     // Adobe XD layer: 'g copy' (shape)
-                    Container(
-                  width: 70.0,
-                  height: 66.0,
+                    GestureDetector(
+                      child: Container(
+                  width: 50.0,
+                  height: 50.0,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: const AssetImage('images/gplus.png'),
-                      fit: BoxFit.fill,
-                    ),
+                      image: DecorationImage(
+                        image: const AssetImage('images/google.png'),
+                        fit: BoxFit.fill,
+                      ),
                   ),
                 ),
+                      onTap: () {
+                        try{
+                           signInWithGoogle(context);
+                        }
+                        catch(e)
+                        {
+                          print(e);
+                        }
+                      },
+                    ),
               ),
             ],
           ),

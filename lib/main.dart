@@ -1,6 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:parliamo/functions/pdfViewer.dart';
+import 'package:parliamo/pages/diagnosis.dart';
+import 'package:parliamo/pages/faq.dart';
+import 'package:parliamo/pages/lifecycleDisorder.dart';
+import 'package:parliamo/pages/profilePage.dart';
+import 'package:parliamo/pages/results.dart';
 import 'package:parliamo/pages/starter.dart';
 
 void main() async{
